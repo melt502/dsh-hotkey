@@ -1,0 +1,6 @@
+# dsh-hotkey bundle patch: mount the node-half plugin so the Loader carries
+# this entry (the client-injection scan keys on Loader entries, so a client
+# package must appear here to have its "./client" bundle served and booted).
+- insert:
+    - id: hotkey
+      name: dsh-hotkey

@@ -1,0 +1,61 @@
+{
+  "name": "dsh-hotkey",
+  "description": "Configurable VS Code style keyboard shortcuts for the DSH Desktop web GUI, with a settings-page keybinding editor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "keyboard-shortcuts",
+    "hotkeys",
+    "keybindings"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-locale"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-client-locale": ">=0.1.0-rc.6",
+    "react": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "node test/bindings.test.mjs && node test/harness.cjs && node test/verify-bundle.cjs && node test/dom.test.mjs",
+    "test:core": "node test/bindings.test.mjs",
+    "test:harness": "node test/harness.cjs",
+    "test:bundle": "node test/verify-bundle.cjs",
+    "test:dom": "node test/dom.test.mjs",
+    "check": "node --check lib/client.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melt502/dsh-hotkey.git"
+  },
+  "bugs": {
+    "url": "https://github.com/melt502/dsh-hotkey/issues"
+  },
+  "homepage": "https://github.com/melt502/dsh-hotkey#readme"
+}
