@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Test / coverage artifacts
+coverage/
+.nyc_output/
+*.log
+
+# Local DSH and editor state
+.dsh/
+.vscode/
+.idea/
+
+# Internal working notes (not part of the public plugin)
+agent.md
