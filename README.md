@@ -27,6 +27,7 @@ Configurable VS Code style keyboard shortcuts for the **DSH Desktop web GUI**, w
 - Follows the DSH interface language (Chinese / English)
 - Right-sidebar keyboard navigation: `↑` / `↓` move between visible buttons, `Enter` clicks
 - Two-stage Side Chat: `Alt+E` expands the right sidebar first, then opens or creates the chat
+- Vision mode toggle: `Ctrl+Alt+V` clicks the `dsh-vision-router` composer button to switch Vision mode on or off
 - Service-first with DOM fallback, so a late-registering service does not disable the shortcut
 
 ### Default keybindings
@@ -40,6 +41,7 @@ Configurable VS Code style keyboard shortcuts for the **DSH Desktop web GUI**, w
 | `Ctrl+Shift+E` | Files / editor | Opens the Files tab |
 | `Ctrl+Shift+G` | Git panel | Opens the source-control tab |
 | `Alt+E` | Side Chat | Expands the right sidebar, then opens the chat |
+| `Ctrl+Alt+V` | Toggle Vision mode | Clicks the `dsh-vision-router` button |
 | `Ctrl+F` | Open new workspace | Opens the "Add workspace" picker |
 | `Ctrl+N` | New session | New session in the current workspace |
 | `Enter` | Approve | Only while an approval card is visible |
@@ -143,6 +145,7 @@ Run the files directly rather than `node --test test/`, which can fail under res
 | `Ctrl+Shift+E` | 文件树 / 编辑器 | 打开文件标签 |
 | `Ctrl+Shift+G` | Git 面板 | 打开源代码管理标签 |
 | `Alt+E` | 侧边对话 | 先展开右侧边栏，再打开对话 |
+| `Ctrl+Alt+V` | 切换识图模式 | 点击 `dsh-vision-router` 右下角识图按钮 |
 | `Ctrl+F` | 打开新的工作区 | 打开「添加工作区」选择器 |
 | `Ctrl+N` | 新建会话 | 在当前工作区新建会话 |
 | `Enter` | 同意审批 | 仅审批卡片可见时接管 |

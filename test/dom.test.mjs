@@ -59,6 +59,8 @@ class FakeDocument {
 		this.sidebarToggleBtn = new FakeEl({ tag: "button", cls: "hHd-Xa_iconButton hHd-Xa_toggle", aria: "收起侧边栏" });
 		this.newSessionBtn = new FakeEl({ tag: "button", cls: "hHd-Xa_newSession", aria: "新建会话" });
 		this.newWorkspaceBtn = new FakeEl({ tag: "button", cls: "workspaceAdd", aria: "添加工作区" });
+		this.visionBtn = new FakeEl({ tag: "button", cls: "vr-vision-toggle", aria: "开启识图模式" });
+		this.visionBtn.setAttribute("data-vision-router-mode-toggle", "true");
 		this.sidebarPane = { querySelectorAll: (sel) => {
 			if (sel === '[class*="iconButton"]') return [this.sidebarToggleBtn];
 			if (sel === "button") return [this.sidebarToggleBtn, this.newSessionBtn];
@@ -77,7 +79,8 @@ class FakeDocument {
 			case "[data-dsh-toggle-cluster]": return [this.cluster];
 			case "[data-dsh-panel-host]": return [this.cluster];
 			case 'button[class*="toggleButton"]': return [this.bottomBtn, this.rightBtn];
-			case "button": return [this.bottomBtn, this.rightBtn, this.otherBtn];
+			case "button": return [this.bottomBtn, this.rightBtn, this.otherBtn, this.visionBtn];
+			case 'button[data-vision-router-mode-toggle="true"]': return [this.visionBtn];
 			case '[class*="sessionRow"]': return [this.sessionRow1, this.sessionRow2, this.sessionRow3];
 			case 'textarea, [contenteditable="true"], [contenteditable=""]': return [this.composer];
 			case 'textarea': return [this.composer];
@@ -373,3 +376,9 @@ const workspaceBefore = doc.newWorkspaceBtn.clicked;
 assert.equal(t.actNewWorkspace(), true, "new workspace action handled");
 assert.ok(doc.newWorkspaceBtn.clicked > workspaceBefore, "workspace add button clicked");
 console.log("✔ new workspace action passed");
+
+// 23. Ctrl+Alt+V clicks dsh-vision-router's stable mode-toggle button.
+const visionBefore = doc.visionBtn.clicked;
+assert.equal(t.actToggleVision(), true, "vision toggle action handled");
+assert.ok(doc.visionBtn.clicked > visionBefore, "vision mode button clicked");
+console.log("✔ vision mode toggle action passed");
