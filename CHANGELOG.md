@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `Ctrl+Alt+V` toggles the `dsh-vision-router` Vision mode button in the composer.
+- README now documents prerequisite plugins (`dsh-vision-router` / `dsh-better-sidebar`) and marks each shortcut's dependency in the keybinding table.
 - `.gitattributes` normalising committed line endings to LF.
 - `.editorconfig` recording the tab-indent / LF conventions.
 - GitHub Actions workflow running the four test suites on Node 20, 22 and 24.

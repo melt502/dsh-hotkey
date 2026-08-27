@@ -15,11 +15,22 @@ Configurable VS Code style keyboard shortcuts for the **DSH Desktop web GUI**, w
 
 `dsh-hotkey` adds keyboard entry points for common workbench operations and a visual keybinding editor under **Settings → Keyboard shortcuts**. Every action resolves through a service API first and falls back to DOM interaction, because DSH client plugins register their services asynchronously and a service may not exist yet when the hotkey plugin activates.
 
-**Requirement:** the right-sidebar actions (terminal, files, Git, Side Chat, bottom panel) target `dsh-better-sidebar`. Without it those actions stay unavailable; the rest still work.
+**Prerequisites:** `Ctrl+Alt+V` (toggle Vision mode) requires the **dsh-vision-router** plugin, and the right-sidebar shortcuts (`` Ctrl+` ``, `Ctrl+J`, `Ctrl+Alt+B`, `Ctrl+Shift+E`, `Ctrl+Shift+G`, `Alt+E`) require the **dsh-better-sidebar** plugin. Install them first, or those bindings show as unavailable in the settings page. See the [prerequisite table](#prerequisite-plugins).
+
+### Prerequisite plugins
+
+Some shortcuts drive features that other DSH plugins provide. Install the matching plugin first; otherwise the affected binding stays unavailable in the settings page.
+
+| Plugin | Provides | Shortcuts it unlocks |
+| --- | --- | --- |
+| [dsh-vision-router](https://github.com/ysr666/dsh-vision-router) | Vision-mode toggle button in the composer | `Ctrl+Alt+V` — Toggle Vision mode |
+| [dsh-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) | Right sidebar hosting terminal, files, Git, Side Chat, and the bottom panel | `` Ctrl+` `` `Ctrl+J` `Ctrl+Alt+B` `Ctrl+Shift+E` `Ctrl+Shift+G` `Alt+E` |
+
+Both plugins are optional — every other shortcut works without them.
 
 ### Features
 
-- 19 actions, 15 bound by default
+- 20 actions, 16 bound by default
 - Rebind, disable, reset one or reset all under **Settings → Keyboard shortcuts**
 - Conflict detection; on conflict the earlier action in the table wins
 - JSON import/export of the whole keymap
@@ -41,7 +52,7 @@ Configurable VS Code style keyboard shortcuts for the **DSH Desktop web GUI**, w
 | `Ctrl+Shift+E` | Files / editor | Opens the Files tab |
 | `Ctrl+Shift+G` | Git panel | Opens the source-control tab |
 | `Alt+E` | Side Chat | Expands the right sidebar, then opens the chat |
-| `Ctrl+Alt+V` | Toggle Vision mode | Clicks the `dsh-vision-router` button |
+| `Ctrl+Alt+V` | Toggle Vision mode | Clicks the `dsh-vision-router` button (requires dsh-vision-router) |
 | `Ctrl+F` | Open new workspace | Opens the "Add workspace" picker |
 | `Ctrl+N` | New session | New session in the current workspace |
 | `Enter` | Approve | Only while an approval card is visible |
@@ -120,11 +131,22 @@ Run the files directly rather than `node --test test/`, which can fail under res
 
 `dsh-hotkey` 为常用工作台操作增加键盘入口，并在 **系统设置 → 快捷键** 中提供可视化改键、禁用、冲突检测及 JSON 导入/导出。由于 DSH 客户端插件的服务是异步注册的，插件激活时服务可能尚不存在，因此每个动作都采用「服务 API 优先、DOM 兜底」的策略。
 
-**前置条件：** 右侧边栏相关动作（终端、文件、Git、侧边对话、底部面板）依赖 `dsh-better-sidebar`。未安装时这些动作不可用，其余动作仍可正常工作。
+**前置条件：** `Ctrl+Alt+V`（切换识图模式）需要安装 **dsh-vision-router** 插件；右侧边栏相关快捷键（`` Ctrl+` ``、`Ctrl+J`、`Ctrl+Alt+B`、`Ctrl+Shift+E`、`Ctrl+Shift+G`、`Alt+E`）需要安装 **dsh-better-sidebar** 插件。未安装时这些绑定会在设置页显示为「不可用」。详见下方[前提插件表](#前提插件)。
+
+### 前提插件
+
+部分快捷键作用于其他 DSH 插件提供的功能。使用前必须先安装对应插件，否则该绑定会在设置页显示为「不可用」。
+
+| 前提插件 | 提供的功能 | 解锁的快捷键 |
+| --- | --- | --- |
+| [dsh-vision-router](https://github.com/ysr666/dsh-vision-router) | 输入框右下角的识图模式开关按钮 | `Ctrl+Alt+V` — 切换识图模式 |
+| [dsh-better-sidebar](https://github.com/omdsh-dev/DSH-better-sidebar) | 承载终端、文件、Git、侧边对话与底部面板的右侧边栏 | `` Ctrl+` `` `Ctrl+J` `Ctrl+Alt+B` `Ctrl+Shift+E` `Ctrl+Shift+G` `Alt+E` |
+
+两个插件都是可选的——其余快捷键无需它们也能正常使用。
 
 ### 功能
 
-- 19 个动作，15 个默认键位
+- 20 个动作，16 个默认键位
 - 在 **系统设置 → 快捷键** 中改键、禁用、单条恢复默认、全部恢复默认
 - 组合键冲突检测；冲突时按动作表顺序确定优先级
 - JSON 导入 / 导出完整键位表
@@ -145,7 +167,7 @@ Run the files directly rather than `node --test test/`, which can fail under res
 | `Ctrl+Shift+E` | 文件树 / 编辑器 | 打开文件标签 |
 | `Ctrl+Shift+G` | Git 面板 | 打开源代码管理标签 |
 | `Alt+E` | 侧边对话 | 先展开右侧边栏，再打开对话 |
-| `Ctrl+Alt+V` | 切换识图模式 | 点击 `dsh-vision-router` 右下角识图按钮 |
+| `Ctrl+Alt+V` | 切换识图模式 | 点击 `dsh-vision-router` 右下角识图按钮（需先安装该插件） |
 | `Ctrl+F` | 打开新的工作区 | 打开「添加工作区」选择器 |
 | `Ctrl+N` | 新建会话 | 在当前工作区新建会话 |
 | `Enter` | 同意审批 | 仅审批卡片可见时接管 |
