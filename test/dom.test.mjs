@@ -85,8 +85,8 @@ class FakeDocument {
 			case 'textarea, [contenteditable="true"], [contenteditable=""]': return [this.composer];
 			case 'textarea': return [this.composer];
 			case '[class*="settingsArea"]': return [this.settingsArea];
-			case '[data-pane="sidebar"] [class*="iconButton"]': return [this.sidebarToggleBtn];
-			case '[data-pane="sidebar"] button': return [this.sidebarToggleBtn, this.newSessionBtn, this.newWorkspaceBtn];
+			case '[data-side="sidebar"] [class*="iconButton"], [data-pane="sidebar"] [class*="iconButton"]': return [this.sidebarToggleBtn];
+			case '[data-side="sidebar"] button, [data-pane="sidebar"] button': return [this.sidebarToggleBtn, this.newSessionBtn, this.newWorkspaceBtn];
 			case '[class*="workspace"] button': return [this.newWorkspaceBtn];
 			case '[class*="workspace"] button': return [this.newWorkspaceBtn];
 			case "[data-pane=sidebar]": return [this.sidebarPane];

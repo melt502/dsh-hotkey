@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   older DSH builds, so both layouts work.
 - Composer filtering now also excludes `[data-approval-key]` containers, so the
   approval textarea is never picked up as the main chat composer.
+- **`data-pane` removed in DSH 2.0.5**: the layout package replaced
+  `[data-pane="sidebar"]` with `[data-side="sidebar"]`. Every DOM-fallback
+  selector now uses a combined query `[data-side="sidebar"] …, [data-pane="sidebar"] …`
+  so the old and new layouts both work. This was silently breaking sidebar
+  toggle, new workspace, and new session in the new DSH.
 - `peerDependencies` for `@deepseek-ai/dsh-client-locale` now spell out each
   prerelease branch explicitly. A plain `>=0.1.0-rc.6` range silently rejects
   every prerelease whose `major.minor.patch` tuple differs from `0.1.0` — which
