@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Approval card detection updated for DSH 2.0.5 / `dsh-client-ui-approval`
+  (0.1.2-rc.1). The approval panel moved to a dedicated package with the stable
+  attribute `[data-approval-key]` and new button labels ("允许一次" / "Allow
+  once"). The old `[class*="Mbwy4a_card"]` selector is kept as a fallback for
+  older DSH builds, so both layouts work.
+- Composer filtering now also excludes `[data-approval-key]` containers, so the
+  approval textarea is never picked up as the main chat composer.
 - `peerDependencies` for `@deepseek-ai/dsh-client-locale` now spell out each
   prerelease branch explicitly. A plain `>=0.1.0-rc.6` range silently rejects
   every prerelease whose `major.minor.patch` tuple differs from `0.1.0` — which
